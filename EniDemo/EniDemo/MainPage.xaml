@@ -1,26 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EniDemo.MainPage">
+             x:Class="EniDemo.MainPage" BackgroundColor="#ffffff">
 
     <StackLayout>
 
-        <!-- Header -->
-        <StackLayout BackgroundColor="Blue" Padding="20" Orientation="Horizontal">
-            <Label Text="Test 1" TextColor="White" FontSize="30" HorizontalOptions="StartAndExpand"></Label>
-            <Label Text="Test 2" TextColor="White" FontSize="30" HorizontalOptions="CenterAndExpand"></Label>
-            <Label Text="Test 2" TextColor="White" FontSize="30" HorizontalOptions="EndAndExpand"></Label>
+        <!--Header-->
+        <StackLayout Orientation="Horizontal" BackgroundColor="#58B0F0" Padding="10, 25">
+            <Label Text="Nouveau" TextColor="#FFF" HorizontalOptions="StartAndExpand"></Label>
+            <Label Text="Accueil" TextColor="#FFF" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"></Label>
+            <Label Text="Rechercher" TextColor="#FFF" HorizontalOptions="EndAndExpand"></Label>
         </StackLayout>
         
-        <!--Content--> 
-        <StackLayout BackgroundColor="Green" VerticalOptions="FillAndExpand">
+        <!--Body-->
+        <StackLayout VerticalOptions="FillAndExpand">
+            <!--Tweet--> 
+            <StackLayout>
+                <!--Row 1-->
+                <StackLayout Orientation="Horizontal">
+                    <!--Avatar-->
+                    <BoxView BackgroundColor="Black" WidthRequest="20" Margin="20, 10"></BoxView>
+                    
+                    <!--Contenu Du Tweet-->
+                    <StackLayout>
+                        <!--Autheur + Temps-->
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Julien"></Label>
+                            <Label Text="@t1-bis-canape.com"></Label>
+                            <Label Text="50s" TextColor="#d9d9d9" HorizontalOptions="EndAndExpand"></Label>
+                        </StackLayout>
+                        
+                        <!--Message-->
+                        <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m"></Label>
+                    </StackLayout>
+                    
+                </StackLayout>
+                
+                <!--Row 2-->
+                <StackLayout  Orientation="Horizontal">
+                    <Label Text="Répondre" TextColor="#1f1f1f" HorizontalOptions="CenterAndExpand"></Label>
+                    <Label Text="Retweet" TextColor="#1f1f1f" HorizontalOptions="CenterAndExpand"></Label>
+                    <Label Text="Favoris" TextColor="#1f1f1f" HorizontalOptions="CenterAndExpand"></Label>
+                </StackLayout>
+            </StackLayout>
         </StackLayout>
-
-
-        <!-- Footer -->
-        <StackLayout BackgroundColor="Red" Padding="10">
-            <Label Text="Test" TextColor="White" FontSize="30"></Label>
+        
+        <!--Footer-->
+        <StackLayout>
+            <BoxView BackgroundColor="#fafafa" HeightRequest="1"></BoxView>
+            <StackLayout Orientation="Horizontal" BackgroundColor="#ffffff" Padding="10, 25">
+                <Label Text="Fil" TextColor="#63b5f0" HorizontalOptions="CenterAndExpand"></Label>
+                <Label Text="Notifications" TextColor="#a9a9a9" HorizontalOptions="CenterAndExpand"></Label>
+                <Label Text="Message" TextColor="#a9a9a9" HorizontalOptions="CenterAndExpand"></Label>
+                <Label Text="Moi" TextColor="#a9a9a9" HorizontalOptions="CenterAndExpand"></Label>
+            </StackLayout>
         </StackLayout>
+      
+
     </StackLayout>
 
 </ContentPage>
