@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EniDemo.MainPage">
+
+    <StackLayout>
+
+        <!-- Header -->
+        <StackLayout BackgroundColor="Blue" Padding="20" Orientation="Horizontal">
+            <Label Text="Test 1" TextColor="White" FontSize="30" HorizontalOptions="StartAndExpand"></Label>
+            <Label Text="Test 2" TextColor="White" FontSize="30" HorizontalOptions="CenterAndExpand"></Label>
+            <Label Text="Test 2" TextColor="White" FontSize="30" HorizontalOptions="EndAndExpand"></Label>
+        </StackLayout>
+        
+        <!--Content--> 
+        <StackLayout BackgroundColor="Green" VerticalOptions="FillAndExpand">
+        </StackLayout>
+
+
+        <!-- Footer -->
+        <StackLayout BackgroundColor="Red" Padding="10">
+            <Label Text="Test" TextColor="White" FontSize="30"></Label>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
