@@ -8,15 +8,15 @@ using Xamarin.Forms;
 
 namespace EniDemo
 {
+    // Pojo
+    public class FormResult
+    {
+        public bool Valid { get; set; }
+        public List<String> ErrorMessages { get; set; }
+    }
+
     public partial class MainPage : ContentPage
     {
-        // Pojo
-        public class FormResult
-        {
-            public bool Valid { get; set; }
-            public List<String> ErrorMessages { get; set; }
-        }
-
         public MainPage()
         {
             InitializeComponent();
