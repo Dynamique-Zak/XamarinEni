@@ -18,14 +18,14 @@
             <!--Formulaire-->
             <StackLayout>
                 <Label HorizontalTextAlignment="Center">Connexion à Twitter</Label>
-                <Entry Placeholder="Identifiant Twitter" />
+                <Entry Placeholder="Identifiant Twitter" x:Name="EmailEntry" />
                 <Entry Placeholder="Mot de passe" IsPassword="True" />
                 <!--Alignement Switch et Label horizontal-->
                 <StackLayout Orientation="Horizontal">
                     <Switch></Switch>
                     <Label Text="Mémoriser mes identifiants" />
                 </StackLayout>
-                <!--Bouton Se connecter--> 
+                <!--Bouton Se connecter-->
                 <Button Text="Se Connecter"></Button>
             </StackLayout>
             

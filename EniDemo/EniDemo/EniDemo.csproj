@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -11,7 +11,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\favorite.png" />
+    <None Remove="Assets\pencil.png" />
+    <None Remove="Assets\reply.png" />
+    <None Remove="Assets\retweet.png" />
+    <None Remove="Assets\search.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\favorite.png" />
+    <EmbeddedResource Include="Assets\pencil.png" />
+    <EmbeddedResource Include="Assets\reply.png" />
+    <EmbeddedResource Include="Assets\retweet.png" />
+    <EmbeddedResource Include="Assets\search.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="PageDemo.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
