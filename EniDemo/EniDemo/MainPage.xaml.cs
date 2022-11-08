@@ -23,5 +23,10 @@ namespace EniDemo
             this.divParent.Children.Add(LabelTest);
             */
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

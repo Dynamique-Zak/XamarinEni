@@ -5,21 +5,36 @@
 
     <StackLayout>
 
-        <!--Header-->
+        <!-- Header -->
         <StackLayout Orientation="Horizontal" BackgroundColor="#58B0F0" Padding="10, 25">
-            <Label Text="Nouveau" TextColor="#FFF" HorizontalOptions="StartAndExpand"></Label>
+            <ImageButton Source="pencil.png" BackgroundColor="Transparent" WidthRequest="25" HorizontalOptions="StartAndExpand"></ImageButton>
             <Label Text="Accueil" TextColor="#FFF" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"></Label>
-            <Label Text="Rechercher" TextColor="#FFF" HorizontalOptions="EndAndExpand"></Label>
+            <ImageButton Source="search.png" BackgroundColor="Transparent" WidthRequest="25" HorizontalOptions="EndAndExpand"></ImageButton>
         </StackLayout>
+
         
         <!--Body-->
         <StackLayout VerticalOptions="FillAndExpand">
+            <!--Formulaire-->
+            <StackLayout>
+                <Label HorizontalTextAlignment="Center">Connexion à Twitter</Label>
+                <Entry Placeholder="Identifiant Twitter" />
+                <Entry Placeholder="Mot de passe" IsPassword="True" />
+                <!--Alignement Switch et Label horizontal-->
+                <StackLayout Orientation="Horizontal">
+                    <Switch></Switch>
+                    <Label Text="Mémoriser mes identifiants" />
+                </StackLayout>
+                <!--Bouton Se connecter--> 
+                <Button Text="Se Connecter"></Button>
+            </StackLayout>
+            
             <!--Tweet--> 
             <StackLayout>
                 <!--Row 1-->
                 <StackLayout Orientation="Horizontal">
                     <!--Avatar-->
-                    <BoxView BackgroundColor="Black" WidthRequest="20" Margin="20, 10"></BoxView>
+                    <Image Source="test.jpg" WidthRequest="90" Margin="20, 0, 0, 0"/>
                     
                     <!--Contenu Du Tweet-->
                     <StackLayout>
@@ -36,11 +51,11 @@
                     
                 </StackLayout>
                 
-                <!--Row 2-->
+                <!-- Footer -->
                 <StackLayout  Orientation="Horizontal">
-                    <Label Text="Répondre" TextColor="#1f1f1f" HorizontalOptions="CenterAndExpand"></Label>
-                    <Label Text="Retweet" TextColor="#1f1f1f" HorizontalOptions="CenterAndExpand"></Label>
-                    <Label Text="Favoris" TextColor="#1f1f1f" HorizontalOptions="CenterAndExpand"></Label>
+                    <ImageButton Source="reply.png" BackgroundColor="Transparent" WidthRequest="25" HorizontalOptions="CenterAndExpand"></ImageButton>
+                    <ImageButton Source="retweet.png" BackgroundColor="Transparent" WidthRequest="25" HorizontalOptions="CenterAndExpand"></ImageButton>
+                    <ImageButton Source="favorite.png" BackgroundColor="Transparent" WidthRequest="25" HorizontalOptions="CenterAndExpand"></ImageButton>
                 </StackLayout>
             </StackLayout>
         </StackLayout>
@@ -55,8 +70,7 @@
                 <Label Text="Moi" TextColor="#a9a9a9" HorizontalOptions="CenterAndExpand"></Label>
             </StackLayout>
         </StackLayout>
-      
-
+     
     </StackLayout>
 
 </ContentPage>
