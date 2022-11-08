@@ -8,11 +8,24 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
 
+            <ListView x:Name="MyListView" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="30" Padding="10"></Label>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
             <Label x:Name="ErrorLabel" Text="" TextColor="#FF0000" />
             
             <ImageButton Source="pencil.png" BackgroundColor="#00AAAA" WidthRequest="60" Padding="10" HorizontalOptions="StartAndExpand" Clicked="OnLoginClicked"></ImageButton>
 
-            <Button Text="Se Connecter" Clicked="OnLoginClicked"></Button>
+
+            <Button Text="Modifier" Clicked="ModifierClick"></Button>
+            
+            <Button Text="Se Connecter" Clicked="TestListviewClick"></Button>
             
         </StackLayout>
     </ContentPage.Content>

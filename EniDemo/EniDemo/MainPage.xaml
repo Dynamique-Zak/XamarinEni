@@ -16,21 +16,24 @@
         <!--Body-->
         <StackLayout VerticalOptions="FillAndExpand">
             <!--Formulaire-->
-            <StackLayout>
+            <StackLayout x:Name="LoginDiv">
                 <Label HorizontalTextAlignment="Center">Connexion à Twitter</Label>
                 <Entry Placeholder="Identifiant Twitter" x:Name="EmailEntry" />
-                <Entry Placeholder="Mot de passe" IsPassword="True" />
+                <Entry Placeholder="Mot de passe"  x:Name="PasswordEntry" IsPassword="True" />
+                
                 <!--Alignement Switch et Label horizontal-->
                 <StackLayout Orientation="Horizontal">
                     <Switch></Switch>
                     <Label Text="Mémoriser mes identifiants" />
                 </StackLayout>
+                <!--Erreur-->
+                <Label x:Name="LabelError" Text="" TextColor="Red"/>
                 <!--Bouton Se connecter-->
-                <Button Text="Se Connecter"></Button>
+                <Button Text="Se Connecter" Clicked="LoginOnClick"></Button>
             </StackLayout>
             
             <!--Tweet--> 
-            <StackLayout>
+            <StackLayout x:Name="TweetDiv">
                 <!--Row 1-->
                 <StackLayout Orientation="Horizontal">
                     <!--Avatar-->
