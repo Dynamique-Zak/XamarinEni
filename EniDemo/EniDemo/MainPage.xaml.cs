@@ -1,9 +1,12 @@
-﻿using System;
+﻿using EniDemo.DAO;
+using EniDemo.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace EniDemo
@@ -17,9 +20,15 @@ namespace EniDemo
 
     public partial class MainPage : ContentPage
     {
+        // Twitter service membre de la classe MainPage (donc du controller)
+        // ITwitterService TwitterService;
+
         public MainPage()
         {
             InitializeComponent();
+            
+            // Instancier le service dans le constructeur
+            // TwitterService = new TwitterServiceMock();
 
             SwitchTweetVisiblity(false);
         }
@@ -78,11 +87,29 @@ namespace EniDemo
             // Préparer et contrôler la validité du formulaire
             FormResult Result = FormValidator();
 
-            // Si ok
+            // Si contrôle surface
             if (Result.Valid)
             {
-                // Afficher le tweet
-                SwitchTweetVisiblity(true);
+                // Version Simple
+                // Contrôle métier - si couple de email/password correct 
+                /*
+                if (TwitterService.authenticate(this.EmailEntry.Text.ToString(), PasswordEntry.Text.ToString()))
+                {
+                    // Afficher le tweet
+                    SwitchTweetVisiblity(true);
+                }
+                */
+                // Version Generic
+                // Contrôle métier - si couple de email/password correct 
+                if (ServiceManager.GetServiceByClass<TwitterServiceMock>().authenticate(this.EmailEntry.Text.ToString(), PasswordEntry.Text.ToString())){
+                    // Afficher le tweet
+                    SwitchTweetVisiblity(true);
+                }
+                else
+                {
+                    LabelError.Text = "Couple email/mot de passe incorrect";
+                }
+
             }
             // Sinon erreur
             else

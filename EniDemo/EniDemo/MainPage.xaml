@@ -19,7 +19,7 @@
             <StackLayout x:Name="LoginDiv">
                 <Label HorizontalTextAlignment="Center">Connexion à Twitter</Label>
                 <Entry Placeholder="Identifiant Twitter" x:Name="EmailEntry" />
-                <Entry Placeholder="Mot de passe"  x:Name="PasswordEntry" IsPassword="True" />
+                <Entry Placeholder="Mot de passe" x:Name="PasswordEntry" IsPassword="True" />
                 
                 <!--Alignement Switch et Label horizontal-->
                 <StackLayout Orientation="Horizontal">
