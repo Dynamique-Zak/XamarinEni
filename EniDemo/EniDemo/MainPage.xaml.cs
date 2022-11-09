@@ -1,11 +1,13 @@
 ﻿using EniDemo.DAO;
 using EniDemo.Model;
 using EniDemo.Service;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
@@ -66,13 +68,24 @@ namespace EniDemo
             return Result;
         }
 
+        public async Task<List<Tweet>> GetAsyncTweets()
+        {
+            List<Tweet> tweets = new List<Tweet>();
+
+            HttpClient httpClient = new HttpClient();
+            var response = await httpClient.GetStringAsync("https://raw.githubusercontent.com/Dynamique-Zak/test-api/master/data_01.json");
+            tweets = JsonConvert.DeserializeObject<List<Tweet>>(response);
+            return tweets;
+        }
+
+
         /// <summary>
         /// Echanger la visibilité du Tweet
         /// Si le tweet est caché alors le formulaire est affiché
         /// Vise versa
         /// </summary>
         /// <param name="TweetIsVisible"></param>
-        public void SwitchTweetVisiblity(bool TweetIsVisible)
+        public async void SwitchTweetVisiblity(bool TweetIsVisible)
         {
             // Switch la visibilité
             LoginDiv.IsVisible = !TweetIsVisible;
@@ -85,7 +98,9 @@ namespace EniDemo
                 List<Tweet> Tweets = ServiceManager.GetServiceByClass<TwitterServiceMock>().getTweets("");
 
                 // je instancie un Observable collection avec ma liste de tweet en entrée
-                ObservableCollection<Tweet> TweetDatas = new ObservableCollection<Tweet>(Tweets);
+                List<Tweet> TweetsAsync = await GetAsyncTweets();
+
+                ObservableCollection<Tweet> TweetDatas = new ObservableCollection<Tweet>(TweetsAsync);
 
                 // J'associe mon observable collection ma source de données de ma liste view
                 ListViewTweets.ItemsSource = TweetDatas;

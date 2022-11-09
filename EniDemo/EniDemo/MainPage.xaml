@@ -54,7 +54,7 @@
                                         </StackLayout>
 
                                         <!--Message-->
-                                        <Label Text="{Binding Text}"></Label>
+                                        <Label Text="{Binding Message}"></Label>
                                     </StackLayout>
 
                                 </StackLayout>
