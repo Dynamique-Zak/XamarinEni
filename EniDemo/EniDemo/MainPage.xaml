@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EniDemo.MainPage" BackgroundColor="#ffffff">
+             x:Class="EniDemo.MainPage" BackgroundColor="#ffffff" Title="Accueil">
 
     <StackLayout>
 
         <!-- Header -->
-        <StackLayout Orientation="Horizontal" BackgroundColor="#58B0F0" Padding="10, 25">
+        <StackLayout Orientation="Horizontal" BackgroundColor="{StaticResource PrimaryColor}" Padding="10, 25">
             <ImageButton Source="pencil.png" BackgroundColor="Transparent" WidthRequest="25" HorizontalOptions="StartAndExpand"></ImageButton>
             <Label Text="Accueil" TextColor="#FFF" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"></Label>
             <ImageButton Source="search.png" BackgroundColor="Transparent" WidthRequest="25" HorizontalOptions="EndAndExpand"></ImageButton>
@@ -18,8 +18,8 @@
             <!--Formulaire-->
             <StackLayout x:Name="LoginDiv">
                 <Label HorizontalTextAlignment="Center">Connexion à Twitter</Label>
-                <Entry Placeholder="Identifiant Twitter" x:Name="EmailEntry" />
-                <Entry Placeholder="Mot de passe" x:Name="PasswordEntry" IsPassword="True" />
+                <Entry Placeholder="Identifiant Twitter" Text="julien@t1bis-canape.com" x:Name="EmailEntry" />
+                <Entry Placeholder="Mot de passe" Text="password" x:Name="PasswordEntry" IsPassword="True" />
                 
                 <!--Alignement Switch et Label horizontal-->
                 <StackLayout Orientation="Horizontal">
@@ -27,50 +27,61 @@
                     <Label Text="Mémoriser mes identifiants" />
                 </StackLayout>
                 <!--Erreur-->
-                <Label x:Name="LabelError" Text="" TextColor="Red"/>
+                <Label x:Name="LabelError" Text="" TextColor="{StaticResource ErrorColor}"/>
                 <!--Bouton Se connecter-->
                 <Button Text="Se Connecter" Clicked="LoginOnClick"></Button>
             </StackLayout>
             
-            <!--Tweet--> 
-            <StackLayout x:Name="TweetDiv">
-                <!--Row 1-->
-                <StackLayout Orientation="Horizontal">
-                    <!--Avatar-->
-                    <Image Source="test.jpg" WidthRequest="90" Margin="20, 0, 0, 0"/>
-                    
-                    <!--Contenu Du Tweet-->
-                    <StackLayout>
-                        <!--Autheur + Temps-->
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Julien"></Label>
-                            <Label Text="@t1-bis-canape.com"></Label>
-                            <Label Text="50s" TextColor="#d9d9d9" HorizontalOptions="EndAndExpand"></Label>
-                        </StackLayout>
-                        
-                        <!--Message-->
-                        <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m"></Label>
-                    </StackLayout>
-                    
-                </StackLayout>
-                
-                <!-- Footer -->
-                <StackLayout  Orientation="Horizontal">
-                    <ImageButton Source="reply.png" BackgroundColor="Transparent" WidthRequest="25" HorizontalOptions="CenterAndExpand"></ImageButton>
-                    <ImageButton Source="retweet.png" BackgroundColor="Transparent" WidthRequest="25" HorizontalOptions="CenterAndExpand"></ImageButton>
-                    <ImageButton Source="favorite.png" BackgroundColor="Transparent" WidthRequest="25" HorizontalOptions="CenterAndExpand"></ImageButton>
-                </StackLayout>
-            </StackLayout>
+            <!--List View-->
+            <ListView x:Name="ListViewTweets" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <!--Tweet-->
+                            <StackLayout >
+                                <!--Row 1-->
+                                <StackLayout Orientation="Horizontal">
+                                    <!--Avatar-->
+                                    <Image Source="test.jpg" WidthRequest="90" Margin="20, 0, 0, 0"/>
+
+                                    <!--Contenu Du Tweet-->
+                                    <StackLayout>
+                                        <!--Autheur + Temps-->
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Pseudo}"></Label>
+                                            <Label Text="@t1-bis-canape.com"></Label>
+                                            <Label Text="50s" TextColor="#d9d9d9" HorizontalOptions="EndAndExpand"></Label>
+                                        </StackLayout>
+
+                                        <!--Message-->
+                                        <Label Text="{Binding Text}"></Label>
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                                <!-- Footer -->
+                                <StackLayout  Orientation="Horizontal">
+                                    <ImageButton Source="reply.png" BackgroundColor="Transparent" WidthRequest="25" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="retweet.png" BackgroundColor="Transparent" WidthRequest="25" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                    <ImageButton Source="favorite.png" BackgroundColor="Transparent" WidthRequest="25" HorizontalOptions="CenterAndExpand"></ImageButton>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+         
         </StackLayout>
         
         <!--Footer-->
         <StackLayout>
             <BoxView BackgroundColor="#fafafa" HeightRequest="1"></BoxView>
             <StackLayout Orientation="Horizontal" BackgroundColor="#ffffff" Padding="10, 25">
-                <Label Text="Fil" TextColor="#63b5f0" HorizontalOptions="CenterAndExpand"></Label>
-                <Label Text="Notifications" TextColor="#a9a9a9" HorizontalOptions="CenterAndExpand"></Label>
-                <Label Text="Message" TextColor="#a9a9a9" HorizontalOptions="CenterAndExpand"></Label>
-                <Label Text="Moi" TextColor="#a9a9a9" HorizontalOptions="CenterAndExpand"></Label>
+                <Label Text="Fil" TextColor="{StaticResource PrimaryColor}" Style="{StaticResource FooterButton}"></Label>
+                <Label Text="Notifications" Style="{StaticResource FooterButton}"></Label>
+                <Label Text="Message" Style="{StaticResource FooterButton}"></Label>
+                <Label Text="Moi" Style="{StaticResource FooterButton}"></Label>
             </StackLayout>
         </StackLayout>
      

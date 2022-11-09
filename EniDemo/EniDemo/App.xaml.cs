@@ -10,7 +10,7 @@ namespace EniDemo
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            Application.Current.MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

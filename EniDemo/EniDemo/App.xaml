@@ -4,5 +4,16 @@
              x:Class="EniDemo.App">
     <Application.Resources>
 
+        <Color x:Key="PrimaryColor">#58B0F0</Color>
+        <Color x:Key="ErrorColor">#FF1010</Color>
+        
+        <Style x:Key="FooterButton" TargetType="Button">
+            <Setter Property="TextColor" Value="#a9a9a9" />
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+        </Style>
+
+        <Style x:Key="FooterButtonExtra" BasedOn="{StaticResource FooterButton}" TargetType="Button">
+            <Setter Property="Padding" Value="40" />
+        </Style>
     </Application.Resources>
 </Application>

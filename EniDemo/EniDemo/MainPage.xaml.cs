@@ -1,7 +1,9 @@
 ﻿using EniDemo.DAO;
+using EniDemo.Model;
 using EniDemo.Service;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -74,7 +76,20 @@ namespace EniDemo
         {
             // Switch la visibilité
             LoginDiv.IsVisible = !TweetIsVisible;
-            TweetDiv.IsVisible = TweetIsVisible;
+            ListViewTweets.IsVisible = TweetIsVisible;
+
+            // Si true alors list view
+            if (TweetIsVisible)
+            {
+                // Je récupère ma liste de tweets depuis mon service
+                List<Tweet> Tweets = ServiceManager.GetServiceByClass<TwitterServiceMock>().getTweets("");
+
+                // je instancie un Observable collection avec ma liste de tweet en entrée
+                ObservableCollection<Tweet> TweetDatas = new ObservableCollection<Tweet>(Tweets);
+
+                // J'associe mon observable collection ma source de données de ma liste view
+                ListViewTweets.ItemsSource = TweetDatas;
+            }
         }
 
         /// <summary>

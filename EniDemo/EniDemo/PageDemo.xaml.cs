@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EniDemo.Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -10,10 +11,6 @@ using Xamarin.Forms.Xaml;
 
 namespace EniDemo
 {
-    public class Person
-    {
-        public String Name { get; set; }
-    }
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageDemo : ContentPage
@@ -21,39 +18,43 @@ namespace EniDemo
 
         ObservableCollection<Person> Datas;
 
+        List<Person> PersonList;
+
         public PageDemo()
         {
             InitializeComponent();
 
-            List<Person> PersonList = new List<Person>
+            PersonList = new List<Person>
             {
-                new Person { Name = "Corentin" },
-                new Person { Name = "Isaac" },
-                new Person { Name = "Julien" },
+                new Person { Firstname = "Corentin", Lastname = "DARKSASUKE" },
+                new Person { Firstname = "Isaac", Lastname = "Steak Layout" },
+                new Person { Firstname = "Julien", Lastname = "Le Fou" },
             };
 
 
             Datas = new ObservableCollection<Person>(PersonList);
 
-            MyListView.ItemsSource = Datas;
+            ListViewPerson.ItemsSource = Datas;
         }
-
-        
 
         private void ModifierClick(object sender, EventArgs e)
         {
             Console.WriteLine(sender);
 
-            Datas[1].Name = "Chien Chien";
+            // Datas.Add(new Person { Firstname = "Lilian", Lastname = "Test" })
+            Datas[1].Firstname = "Chien Chien";
 
+            // Modifier une ligne = Forcer la mise à jour/ou manipulation de l'adresse mémoire d'un element du tableau
             Datas[1] = Datas[1];
         }
 
-        private void TestListviewClick(object sender, EventArgs e)
+        async private void TestListviewClick(object sender, EventArgs e)
         {
+            /*
             Console.WriteLine(sender);
 
             Datas.Add(new Person { Name = "Bruno" });
+            */
         }
 
         private void OnLoginClicked(object sender, EventArgs e)

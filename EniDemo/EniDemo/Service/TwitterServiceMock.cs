@@ -18,9 +18,9 @@ namespace EniDemo.Service
             // Retourner une liste de "Tweet" bouchonnée
             return new List<Tweet>
             {
-                new Tweet { Identifiant = "test1", Text="Un example"},
-                new Tweet { Identifiant = "test2", Text="Un example 2"},
-                new Tweet { Identifiant = "test3", Text="Un example 3"}
+                new Tweet { Identifiant = "test1", Text="Un example", Pseudo = "Wouaf"},
+                new Tweet { Identifiant = "test2", Text="Un example 2", Pseudo = "Ouaf"},
+                new Tweet { Identifiant = "test3", Text="Un example 3", Pseudo = "Toto"}
             };
         }
     }
